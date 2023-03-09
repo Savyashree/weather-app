@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import CityComponent from "./Components/CityComponent";
 import WeatherComponent from "./Components/WeatherComponent";
 import axios, { Axios } from "axios";
-import ErrorComponent from "./Components/ErrorComponent";
 
 const Container = styled.div`
 display: flex;
