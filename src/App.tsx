@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import React from 'react';
 import CityComponent from "./Components/CityComponent";
-import WeatherInfoComponent from "./Components/WeatherInfoComponent";
+import WeatherComponent from "./Components/WeatherComponent";
 
 const Container = styled.div`
 display: flex;
@@ -27,7 +27,7 @@ function App() {
   return (
     <Container>
       <AppLabel>React wether app</AppLabel>
-      <WeatherInfoComponent />
+      <WeatherComponent />
     </Container>
   );
 }
