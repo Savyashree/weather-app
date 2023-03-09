@@ -41,7 +41,7 @@ width: 90%;
 justify-content: space-between;
 padding : 20px 10px;
 border-radius: 4px;
-background: #cacbd5;
+background: #dee0f2;
 box-shadow: 1px 1px 1px 0px #555;
 `
 
