@@ -1,6 +1,10 @@
 import React, { useState } from "react"
 import styled from "styled-components";
 
+const WeatherHeader = styled.div`
+disaply: flex;
+flex-direction: row;
+`;
 
 const WeatherLogo = styled.img`
 width: 140px;
@@ -46,8 +50,6 @@ const CityComponent = (props: { updateCity: any; fetchWeather: any; }) => {
     const { updateCity, fetchWeather } = props;
     return (
         <>
-            <WeatherLogo src="/icons/perfect-day.svg" />
-            <ChooseCityLogo>Find weather of your city</ChooseCityLogo>
             <SearchBox onSubmit={fetchWeather}>
                 <input placeholder="city" onChange={(e) => updateCity(e.target.value)} />
                 <button type="submit">Submit</button>

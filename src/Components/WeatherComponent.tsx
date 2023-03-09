@@ -33,13 +33,24 @@ export const WeatherIcons: any = {
 };
 
 
+const WeatherCard = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+width: 90%;
+justify-content: space-between;
+padding : 20px 10px;
+border-radius: 4px;
+background: #cacbd5;
+box-shadow: 1px 1px 1px 0px #555;
+`
+
 const WeatherCondition = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: flex;
 align-items: center;
-width: 100%;
+width: 90%;
 justify-content: space-between;
-margin: 30px auto
 `
 const WeatherLogo = styled.img`
 width: 100px;
@@ -122,11 +133,14 @@ const WeatherComponent = (props: any) => {
 
     return (
         <>
-            <WeatherCondition>
-                <Condition><span>{`${Math.floor(weather.main.temp)} ${'\u00b0'} C `}</span>{`${weather.weather[0].description}`} |</Condition>
-                <WeatherLogo src={WeatherIcons[weather.weather[0].icon]} />
-            </WeatherCondition>
-            <Location>{`${weather.name} , ${weather.sys.country}`}</Location>
+            <WeatherCard>
+                <Location>{`${weather.name} , ${weather.sys.country}`}</Location>
+                <WeatherCondition>
+                    <Condition><span>{`${Math.floor(weather.main.temp)} ${'\u00b0'} C `}</span>{`${weather.weather[0].description}`} |</Condition>
+                    <WeatherLogo src={WeatherIcons[weather.weather[0].icon]} />
+                </WeatherCondition>
+
+            </WeatherCard>
             <WeatherInfoLabel>Weather info</WeatherInfoLabel>
             <WeatherInfoContainer>
                 <WeatherInfoComponent name="temperature" value={`${weather.main.temp_max} / ${weather.main.temp_min}`} />
