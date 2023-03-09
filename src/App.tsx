@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import React from 'react';
+import React, { useState } from 'react';
 import CityComponent from "./Components/CityComponent";
 import WeatherComponent from "./Components/WeatherComponent";
+import axios, { Axios } from "axios";
 
 const Container = styled.div`
 display: flex;
@@ -24,10 +25,19 @@ font-weight: bold;
 `;
 
 function App() {
+  const [city, setCity] = useState('');
+  const [weather, setWeather] = useState('');
+
+  const fetchWeather = async (e: { preventDefault: () => void; }) => {
+    e.preventDefault();
+    const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&type=hour&units=metric&appid=23dc3a7fe36f9f7bfc2398855585545b`)
+    setWeather(response.data)
+  }
   return (
     <Container>
       <AppLabel>React wether app</AppLabel>
-      <WeatherComponent />
+      <CityComponent updateCity={setCity} fetchWeather={fetchWeather} />
+      {weather ? <WeatherComponent weather={weather} /> : null}
     </Container>
   );
 }
